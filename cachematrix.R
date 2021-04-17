@@ -1,12 +1,16 @@
-## Pair of functions that cache the inverse of a matrix
-## Usage: Pass the result of a makeCacheMatrix call to cacheSolve 
+-## Put comments here that give an overall description of what your
+## functions do
 
-#' Util function that set the matrix and the inverse in an environment
-#' @param x an invertible matrix
-#' examples
-#' x = makeCacheMatrix(matrix(rnorm(9), 3, 3))
-#' x$set(matrix(rnorm(16), 4, 4))
+## Write a short comment describing this function
+## Pair of functions that cache the inverse of a matrix
++ It is used to pass the result of a makeCacheMatrix call to cacheSolve 
+
++ The function that set the matrix and the inverse in an environment
++ examples
++ x = makeCacheMatrix(matrix(rnorm(9), 3, 3))
++ x$set(matrix(rnorm(16), 4, 4))
 makeCacheMatrix <- function(x = matrix()) {
+
   # todo error if x is not a matrix
   inv <- NULL
   set <- function(y) {
@@ -22,13 +26,16 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-#' Compute and cache the inverse of a matrix
-#' @param x the result of a previous makeCacheMatrix call
-#' @param ... additional arguments to pass to solve function
-#' examples
-#' x = makeCacheMatrix(matrix(rnorm(9), 3, 3))
-#' cacheSolve(x)
+## Write a short comment describing this function
+
++ Computes and caches the inverse of a matrix
++ x the result of a previous makeCacheMatrix call
++ additional arguments to pass to solve function
++ examples
++ x = makeCacheMatrix(matrix(rnorm(9), 3, 3))
++ cacheSolve(x)
 cacheSolve <- function(x, ...) {
+        ## Return a matrix that is the inverse of 'x'
   ## Return a matrix that is the inverse of 'x'
   inv <- x$getinverse()
   if(!is.null(inv)) {
@@ -40,3 +47,4 @@ cacheSolve <- function(x, ...) {
   x$setinverse(inv)
   inv
 }
+
